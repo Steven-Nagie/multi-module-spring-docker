@@ -1,0 +1,7 @@
+version: '3'
+services:
+  api:
+    build: ./
+    container_name: multi-module-spring-docker
+    ports:
+      - "8080:8080"
