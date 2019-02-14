@@ -26,12 +26,27 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.9.10</version>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
 
 
   <build>
     <finalName>multi-module-spring-docker</finalName>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>2.18.1</version>
+        <configuration>
+          <skipTests>false</skipTests>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -57,6 +72,28 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>pre-integration-test</id>
+            <goals>
+              <goal>start</goal>
+            </goals>
+            <configuration>
+              <skip>false</skip>
+              <wait>1000</wait>
+              <maxAttempts>180</maxAttempts>
+            </configuration>
+          </execution>
+          <execution>
+            <id>post-integration-test</id>
+            <goals>
+              <goal>stop</goal>
+            </goals>
+            <configuration>
+              <skip>false</skip>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

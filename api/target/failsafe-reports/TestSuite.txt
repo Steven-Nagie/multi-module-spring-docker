@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 3.24 sec <<< FAILURE! - in TestSuite
+testMultiplicationEndpoint(com.steven.nagie.api.MultiModuleTestIT)  Time elapsed: 0.011 sec  <<< FAILURE!
+java.lang.AssertionError: expected [100] but found [10]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:179)
+	at com.steven.nagie.api.MultiModuleTestIT.testMultiplicationEndpoint(MultiModuleTestIT.java:24)
+

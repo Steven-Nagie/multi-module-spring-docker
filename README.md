@@ -4,4 +4,10 @@ This project is a practice project, utilizing docker-compose and Dockerfile to b
 
 The main objective is to manage the entire build for a complex maven project in a single command, `docker-compose up`.
 
-To clear all images, run `docker-compose down -v --rmi 'all'`
+__Usage__
+
+`docker-compose up` to build image and start container. Building the image automatically runs tests.
+
+`GET localhost:8080/multiply?start={startNumber}` to multiply startNumber by 10
+
+`docker-compose down -v --rmi 'all'` will close the container and delete the old image
