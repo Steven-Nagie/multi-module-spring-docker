@@ -1,1 +1,5 @@
 .idea/
+
+# maven
+target/
+test-output/
