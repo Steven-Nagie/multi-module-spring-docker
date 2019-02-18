@@ -3,7 +3,7 @@ COPY pom.xml /tmp/
 COPY api /tmp/api/
 COPY domain /tmp/domain/
 WORKDIR /tmp/
-RUN mvn clean install
+RUN mvn clean install -Pdocker
 
 FROM openjdk:8-jdk-alpine
 COPY --from=MAVEN_TOOL_CHAIN /tmp/api/target/multi-module-spring-docker.jar app.jar

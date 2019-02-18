@@ -35,6 +35,25 @@
 
   </dependencies>
 
+  <properties>
+    <skip.test>false</skip.test>
+  </properties>
+
+  <profiles>
+    <profile>
+      <id>docker</id>
+      <properties>
+        <skip.test>true</skip.test>
+      </properties>
+    </profile>
+    <profile>
+      <id>local</id>
+      <properties>
+        <skip.test>false</skip.test>
+      </properties>
+    </profile>
+  </profiles>
+
 
   <build>
     <finalName>multi-module-spring-docker</finalName>
@@ -44,7 +63,7 @@
         <artifactId>maven-failsafe-plugin</artifactId>
         <version>2.18.1</version>
         <configuration>
-          <skipTests>false</skipTests>
+          <skipTests>${skip.test}</skipTests>
         </configuration>
       </plugin>
       <plugin>
